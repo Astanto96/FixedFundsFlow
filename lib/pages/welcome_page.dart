@@ -1,3 +1,4 @@
+import 'package:fixedfundsflow/widgets/menu_drawer.dart';
 import 'package:flutter/material.dart';
 
 class WelcomePage extends StatelessWidget {
@@ -22,6 +23,7 @@ class WelcomePage extends StatelessWidget {
           ),
         ],
       ),
+      drawer: const MenuDrawer(),
       backgroundColor: Theme.of(context).colorScheme.background,
       body: const Center(
         child: Text('Hello Pogo Intro'),
