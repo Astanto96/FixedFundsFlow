@@ -8,6 +8,7 @@ class Contract {
   DateTime? contractEnd;
   bool openEnd;
   Category category;
+  bool income;
 
   Contract({
     required this.description,
@@ -16,5 +17,6 @@ class Contract {
     this.contractEnd,
     required this.openEnd,
     required this.category,
+    required this.income,
   });
 }
