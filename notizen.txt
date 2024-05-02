@@ -15,12 +15,14 @@ Mainseite: 1. Leere Seite mit AppLogo?
         Third:
             1. Vertragsdetails
 
-            SETUP DONE!
+            SETUP DONE! 1
 ________________
     -> Drawmenü bestücken? --> Routing anbinden
-        rein Funktion, kein Design -->
-    -> Settingsmenü bestücken
-        rein Funktion, kein Design -->
+        rein Funktion, kein Design --> DONE! 2
+    -> Settingsmenü bestücken CHANGE of MIND!
+        Settings (Toggles) werden in das Menü mit eingebaut,
+        Menübutton aber nach rechts verfrachten
+        dadurch evtl easy anwendung des "zurück" Pfeiles
     -> Riverpod Statemanagement für die Vertragsliste
         * hinzufügen
         * entfernen
