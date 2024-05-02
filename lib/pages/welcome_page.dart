@@ -12,6 +12,7 @@ class WelcomePage extends StatelessWidget {
         elevation: 0,
         foregroundColor: Theme.of(context).colorScheme.inversePrimary,
         actions: [
+          //SETTINGSBUTTON
           IconButton(
             onPressed: () {
               //acting like im pressed
@@ -23,11 +24,16 @@ class WelcomePage extends StatelessWidget {
           ),
         ],
       ),
+      //BURGERMENU
       drawer: const MenuDrawer(),
       backgroundColor: Theme.of(context).colorScheme.background,
+
+      //INTRO-MITTIG
       body: const Center(
         child: Text('Hello Pogo Intro'),
       ),
+
+      //FLOATINGBUTTON
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           //acting like im pressed
