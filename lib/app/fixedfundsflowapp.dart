@@ -1,5 +1,5 @@
+import 'package:fixedfundsflow/config/routes/routes.dart';
 import 'package:fixedfundsflow/config/theme/theme.dart';
-import 'package:fixedfundsflow/pages/welcome_page.dart';
 import 'package:flutter/material.dart';
 
 class FixedFundsFlowApp extends StatelessWidget {
@@ -8,10 +8,12 @@ class FixedFundsFlowApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      title: "FixedFundsFlow",
       debugShowCheckedModeBanner: false,
       theme: lightMode,
       darkTheme: darkMode,
-      home: const WelcomePage(),
+      initialRoute: RouteLocation.home,
+      routes: getAppRoutes(),
     );
   }
 }

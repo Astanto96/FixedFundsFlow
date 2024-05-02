@@ -1,0 +1,25 @@
+Notizen:
+
+2.05.24
+next steps:
+
+________________
+-> Routing? Menübar soll zum Pfeil werden wenn Seite offen
+
+Mainseite: 1. Leere Seite mit AppLogo?
+    Secondary: 
+        1. Ausgaben Übersicht 
+        2. Alle Verträge -> sort: Betrag desc; 
+            opt: (Sortierung: Kategorie, Betrag up/down, Alphabetisch up/down)
+        3. Kategorien Übersicht -> sort: Alphabetisch
+        4. Auswertung -> Kuchendiagramm
+        Third:
+            1. Vertragsdetails
+________________
+    -> Draftmenü bestücken?
+    -> Settingsmenü bestücken
+    -> Riverpod Statemanagement für die Vertragsliste
+        * hinzufügen
+        * entfernen
+        * bearbeiten
+    
