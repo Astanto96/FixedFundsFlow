@@ -1,4 +1,4 @@
-import 'package:fixedfundsflow/model/billig_period.dart';
+import 'package:fixedfundsflow/model/billing_period.dart';
 import 'package:fixedfundsflow/model/category.dart';
 
 class Contract {

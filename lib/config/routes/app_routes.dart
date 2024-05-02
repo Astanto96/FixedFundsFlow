@@ -5,10 +5,10 @@ import 'route_location.dart';
 Map<String, WidgetBuilder> getAppRoutes() {
   return {
     RouteLocation.home: (context) => const WelcomePage(),
-    RouteLocation.myflow: (context) => const MyFlowPage(),
+    RouteLocation.overview: (context) => const OverviewPage(),
     RouteLocation.contracts: (context) => const ContractsPage(),
     RouteLocation.categorys: (context) => const CategorysPage(),
-    RouteLocation.overview: (context) => const OverviewPage(),
+    RouteLocation.statisticsPage: (context) => const StatisticsPage(),
     RouteLocation.contractDetails: (context) => const ContractDetailsPage(),
   };
 }

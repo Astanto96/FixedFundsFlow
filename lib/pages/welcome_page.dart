@@ -1,4 +1,3 @@
-import 'package:fixedfundsflow/config/routes/routes.dart';
 import 'package:fixedfundsflow/widgets/menu_drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -9,6 +8,7 @@ class WelcomePage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
+      backgroundColor: Theme.of(context).colorScheme.background,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
@@ -28,7 +28,6 @@ class WelcomePage extends ConsumerWidget {
       ),
       //BURGERMENU
       drawer: const MenuDrawer(),
-      backgroundColor: Theme.of(context).colorScheme.background,
 
       //INTRO-MITTIG
       body: const Center(

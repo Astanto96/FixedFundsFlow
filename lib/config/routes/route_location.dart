@@ -9,9 +9,9 @@ class RouteLocation {
   const RouteLocation._();
 
   static String get home => '/home';
-  static String get myflow => '/myflow';
+  static String get overview => '/overview';
   static String get contracts => '/contracts';
   static String get categorys => '/categorys';
-  static String get overview => '/overview';
+  static String get statisticsPage => '/statisticsPage';
   static String get contractDetails => '/contractDetails';
 }

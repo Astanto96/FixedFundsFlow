@@ -4,8 +4,7 @@ Notizen:
 next steps:
 
 ________________
--> Routing? Menübar soll zum Pfeil werden wenn Seite offen
-
+-> Routing? 
 Mainseite: 1. Leere Seite mit AppLogo?
     Secondary: 
         1. Ausgaben Übersicht 
@@ -15,9 +14,13 @@ Mainseite: 1. Leere Seite mit AppLogo?
         4. Auswertung -> Kuchendiagramm
         Third:
             1. Vertragsdetails
+
+            SETUP DONE!
 ________________
-    -> Draftmenü bestücken?
+    -> Drawmenü bestücken? --> Routing anbinden
+        rein Funktion, kein Design -->
     -> Settingsmenü bestücken
+        rein Funktion, kein Design -->
     -> Riverpod Statemanagement für die Vertragsliste
         * hinzufügen
         * entfernen
