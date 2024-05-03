@@ -15,7 +15,7 @@ class WelcomePage extends ConsumerWidget {
         foregroundColor: Theme.of(context).colorScheme.inversePrimary,
       ),
       //BURGERMENU
-      drawer: const MenuDrawer(),
+      endDrawer: const MenuDrawer(),
 
       //INTRO-MITTIG
       body: const Center(

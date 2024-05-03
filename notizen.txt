@@ -23,8 +23,25 @@ ________________
         Settings (Toggles) werden in das Menü mit eingebaut,
         Menübutton aber nach rechts verfrachten
         dadurch evtl easy anwendung des "zurück" Pfeiles
+        Sprachetoggle erst später wenn ich es insgesamt als Feature
+        implementieren möchte.
+        Sprachetool Soll ButtonToggle werden
+        Darkmode/Lightmode muss mit Riverpod gemacht werden
+    -> Riverpod Statemanagement für die AppTheme
+        * Darkmode
+        * Lightmode        
     -> Riverpod Statemanagement für die Vertragsliste
         * hinzufügen
         * entfernen
         * bearbeiten
-    
+    -> Riverpod Statemanagement für die Kategorie
+        * hinzufügen
+        * entfernen
+        * bearbeiten
+
+________________
+
+TODO morgen früh:
+
+Erstmal letzten ChatGPT Eintrag checken und dann Riverpod endlich in Angriff nehmen.
+mit Darkmode/Lightmode beginnen.

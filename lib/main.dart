@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fixedfundsflow/app/fixedfundsflowapp.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 void main() {
-  runApp(const FixedFundsFlowApp());
+  runApp(const ProviderScope(child: FixedFundsFlowApp()));
 }
