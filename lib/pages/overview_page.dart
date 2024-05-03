@@ -15,20 +15,8 @@ class OverviewPage extends ConsumerWidget {
         backgroundColor: Colors.transparent,
         elevation: 0,
         foregroundColor: Theme.of(context).colorScheme.inversePrimary,
-        actions: [
-          //SETTINGSBUTTON
-          IconButton(
-            onPressed: () {
-              //acting like im pressed
-            },
-            icon: Icon(
-              Icons.more_vert,
-              color: Theme.of(context).colorScheme.inversePrimary,
-            ),
-          ),
-        ],
       ),
-      drawer: const MenuDrawer(),
+      endDrawer: const MenuDrawer(),
       body: const Center(child: Text('OVERVIEW!')),
     );
   }

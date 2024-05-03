@@ -41,7 +41,5 @@ ________________
 
 ________________
 
-TODO morgen früh:
-
-Erstmal letzten ChatGPT Eintrag checken und dann Riverpod endlich in Angriff nehmen.
-mit Darkmode/Lightmode beginnen.
+Überlegung: Wenn ich einen Vertrag in der Liste antippe, kleine animation,
+das es dann groß wird bis die ganze seite ausgefüllt ist?

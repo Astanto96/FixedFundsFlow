@@ -27,24 +27,28 @@ class MenuDrawer extends ConsumerWidget {
                 ListTile(
                   title: const Text('Overview'),
                   onTap: () {
+                    Navigator.pop(context);
                     Navigator.of(context).pushNamed(RouteLocation.overview);
                   },
                 ),
                 ListTile(
                   title: const Text('Contracts'),
                   onTap: () {
+                    Navigator.pop(context);
                     Navigator.of(context).pushNamed(RouteLocation.contracts);
                   },
                 ),
                 ListTile(
                   title: const Text('Categorys'),
                   onTap: () {
+                    Navigator.pop(context);
                     Navigator.of(context).pushNamed(RouteLocation.categorys);
                   },
                 ),
                 ListTile(
                   title: const Text('Statistics'),
                   onTap: () {
+                    Navigator.pop(context);
                     Navigator.of(context)
                         .pushNamed(RouteLocation.statisticsPage);
                   },
@@ -65,6 +69,7 @@ class MenuDrawer extends ConsumerWidget {
             ),
             title: Center(
               child: ToggleButtons(
+                renderBorder: false,
                 isSelected: [
                   language == 'de',
                   language == 'en',
