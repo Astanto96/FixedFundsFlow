@@ -1,8 +1,8 @@
 import 'package:fixedfundsflow/model/contract.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class VertragNotifier extends StateNotifier<List<Contract>> {
-  VertragNotifier() : super([]);
+class ContractlistNotifier extends StateNotifier<List<Contract>> {
+  ContractlistNotifier() : super([]);
 
   void addVertrag(Contract vertrag) {
     state = [...state, vertrag];
