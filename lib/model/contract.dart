@@ -19,6 +19,6 @@ class Contract {
     this.contractEnd,
     required this.openEnd,
     required this.category,
-    required this.income,
+    this.income = false,
   });
 }
