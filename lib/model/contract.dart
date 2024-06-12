@@ -10,6 +10,7 @@ class Contract {
   bool openEnd;
   Category category;
   bool income;
+  int amount;
 
   Contract({
     required this.id,
@@ -20,5 +21,6 @@ class Contract {
     required this.openEnd,
     required this.category,
     this.income = false,
+    required this.amount,
   });
 }

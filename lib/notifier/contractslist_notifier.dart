@@ -13,17 +13,18 @@ class ContractlistNotifier extends StateNotifier<List<Contract>> {
       DateTime? contractEnd,
       bool openEnd,
       Category category,
-      bool income) {
+      bool income,
+      int amount) {
     final newContract = Contract(
-      id: DateTime.now().millisecondsSinceEpoch,
-      description: description,
-      billingPeriod: billingPeriod,
-      contractStart: contractStart,
-      contractEnd: contractEnd,
-      openEnd: openEnd,
-      category: category,
-      income: income,
-    );
+        id: DateTime.now().millisecondsSinceEpoch,
+        description: description,
+        billingPeriod: billingPeriod,
+        contractStart: contractStart,
+        contractEnd: contractEnd,
+        openEnd: openEnd,
+        category: category,
+        income: income,
+        amount: amount);
     state = [...state, newContract];
   }
 

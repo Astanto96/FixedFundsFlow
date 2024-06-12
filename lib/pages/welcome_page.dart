@@ -1,3 +1,4 @@
+import 'package:fixedfundsflow/widgets/contract_form_dialog.dart';
 import 'package:fixedfundsflow/widgets/menu_drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -25,7 +26,12 @@ class WelcomePage extends ConsumerWidget {
       //FLOATINGBUTTON
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          //acting like im pressed
+          showDialog(
+            context: context,
+            builder: (BuildContext context) {
+              return const ContractFormDialog();
+            },
+          );
         },
         child: Icon(
           Icons.add,
