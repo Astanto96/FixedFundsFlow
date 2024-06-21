@@ -2,6 +2,7 @@ import 'package:fixedfundsflow/model/billing_period.dart';
 import 'package:fixedfundsflow/model/category.dart' as catmodel;
 import 'package:fixedfundsflow/provider/categoryslist_provider.dart';
 import 'package:fixedfundsflow/provider/contractslist_provider.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -22,7 +23,7 @@ class ContractFormState extends ConsumerState<ContractFormDialog> {
   @override
   Widget build(BuildContext context) {
     final categorysList = ref.watch(categoryslistProvider);
-    catmodel.Category _selectedCategory = categorysList.first;
+    catmodel.Category selectedCategory = categorysList.first;
 
     return Dialog(
       backgroundColor: Colors.transparent,
@@ -108,7 +109,7 @@ class ContractFormState extends ConsumerState<ContractFormDialog> {
                             isDense: true,
                             onChanged: (newValue) {
                               setState(() {
-                                _selectedCategory = newValue!;
+                                selectedCategory = newValue!;
                               });
                             },
                             items:
@@ -125,56 +126,63 @@ class ContractFormState extends ConsumerState<ContractFormDialog> {
                     Padding(
                       padding: const EdgeInsets.symmetric(
                           horizontal: 8, vertical: 16),
-                      child: Row(
-                        children: <Widget>[
-                          Expanded(
-                            child: TextFormField(
-                              keyboardType:
-                                  const TextInputType.numberWithOptions(
-                                      decimal: true),
-                              decoration: const InputDecoration(
-                                border: OutlineInputBorder(),
-                                hintText: "00,00€",
-                              ),
-                              validator: (String? value) {
-                                if (value == null || value.isEmpty) {
-                                  return "Please enter the amount";
-                                }
-                                return null;
-                              },
-                            ),
-                          ),
-                          Container(
-                            margin: const EdgeInsets.only(left: 16),
-                            padding: const EdgeInsets.all(7),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(4),
-                              border: Border.all(
-                                color: Theme.of(context)
-                                    .colorScheme
-                                    .inversePrimary,
+                      child: InputDecorator(
+                        decoration: const InputDecoration(
+                            border: OutlineInputBorder(),
+                            contentPadding: EdgeInsets.symmetric(
+                                vertical: 12.5, horizontal: 8)),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            Padding(
+                              padding: const EdgeInsets.only(left: 4),
+                              child: Text(
+                                "Is it Income?",
+                                style: TextStyle(
+                                    fontSize: 16,
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .inversePrimary),
                               ),
                             ),
-                            child: Row(
-                              children: <Widget>[
-                                Checkbox(
-                                    checkColor: Colors.green,
-                                    value: _isIncome,
-                                    onChanged: (bool? newValue) {
-                                      setState(() {
-                                        _isIncome = newValue!;
-                                      });
-                                    }),
-                                const Text(
-                                  "Is it Income?",
-                                  style: TextStyle(
-                                    fontSize: 16.00,
-                                  ),
-                                )
-                              ],
+                            Padding(
+                              padding: const EdgeInsets.only(right: 4),
+                              child: CupertinoSwitch(
+                                  activeColor: Colors.green,
+                                  value: _isIncome,
+                                  onChanged: (bool? newValue) {
+                                    setState(() {
+                                      _isIncome = newValue!;
+                                    });
+                                  }),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 8, vertical: 16),
+                      child: TextFormField(
+                        decoration: InputDecoration(
+                          border: const OutlineInputBorder(),
+                          hintText: "00,00€",
+                          prefixIcon:
+                              Icon(_isIncome ? Icons.add : Icons.remove),
+                          prefixIconColor:
+                              _isIncome ? Colors.green : Colors.red,
+                        ),
+                        onSaved: (value) {
+                          _amount = int.parse(value!);
+                          //Achtung, nochmal komplett überarbeiten!
+                        },
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return "Please enter a description";
+                            //Überarbeiten!
+                          }
+                          return null;
+                        },
                       ),
                     ),
                     Padding(
@@ -188,7 +196,7 @@ class ContractFormState extends ConsumerState<ContractFormDialog> {
                             ref
                                 .read(contractslistProvider.notifier)
                                 .addContract(_description, _billingPeriod,
-                                    _selectedCategory, _isIncome, _amount);
+                                    selectedCategory, _isIncome, _amount);
                             ScaffoldMessenger.of(context).showSnackBar(
                               const SnackBar(content: Text("Contract created")),
                             );
