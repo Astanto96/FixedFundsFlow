@@ -23,11 +23,11 @@ class ContractFormState extends ConsumerState<ContractFormDialog> {
   @override
   Widget build(BuildContext context) {
     final categorysList = ref.watch(categoryslistProvider);
-    catmodel.Category selectedCategory = categorysList.first;
+    catmodel.Category? selectedCategory;
 
     return Dialog(
       backgroundColor: Colors.transparent,
-      insetPadding: const EdgeInsets.fromLTRB(10, 60, 10, 60),
+      insetPadding: const EdgeInsets.fromLTRB(10, 30, 10, 30),
       child: Container(
           decoration: BoxDecoration(
             color: Theme.of(context).colorScheme.background,
@@ -57,8 +57,8 @@ class ContractFormState extends ConsumerState<ContractFormDialog> {
                           border: OutlineInputBorder(),
                           hintText: "Enter a Description",
                         ),
-                        onSaved: (value) {
-                          _description = value ?? "";
+                        onSaved: (newValue) {
+                          _description = newValue ?? "";
                         },
                         validator: (value) {
                           if (value == null || value.isEmpty) {
@@ -71,56 +71,53 @@ class ContractFormState extends ConsumerState<ContractFormDialog> {
                     Padding(
                       padding: const EdgeInsets.symmetric(
                           horizontal: 8, vertical: 16),
-                      child: InputDecorator(
+                      child: DropdownButtonFormField<BillingPeriod>(
                         decoration: const InputDecoration(
                           border: OutlineInputBorder(),
-                          labelText: 'Billing Period',
                         ),
-                        child: DropdownButtonHideUnderline(
-                            child: DropdownButton<BillingPeriod>(
-                          hint: const Text("Choose Billing Period"),
-                          isDense: true,
-                          onChanged: (newValue) {
-                            setState(() {
-                              _billingPeriod = newValue!;
-                            });
-                          },
-                          items:
-                              BillingPeriod.values.map((BillingPeriod period) {
-                            return DropdownMenuItem<BillingPeriod>(
-                              value: period,
-                              child: Text(period.toString().split('.').last),
-                            );
-                          }).toList(),
-                        )),
+                        validator: (value) => value == null
+                            ? 'please choose a billing period'
+                            : null,
+                        hint: const Text("Choose BillingPeriod"),
+                        onChanged: (newValue) {
+                          setState(() {
+                            _billingPeriod = newValue!;
+                          });
+                        },
+                        items: BillingPeriod.values
+                            .map(
+                              (period) => DropdownMenuItem(
+                                value: period,
+                                child: Text(period.name),
+                              ),
+                            )
+                            .toList(),
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.symmetric(
                           horizontal: 8, vertical: 16),
-                      child: InputDecorator(
+                      child: DropdownButtonFormField<catmodel.Category>(
                         decoration: const InputDecoration(
                           border: OutlineInputBorder(),
-                          labelText: "Category",
                         ),
-                        child: DropdownButtonHideUnderline(
-                          child: DropdownButton<catmodel.Category>(
-                            hint: const Text("Choose Category"),
-                            isDense: true,
-                            onChanged: (newValue) {
-                              setState(() {
-                                selectedCategory = newValue!;
-                              });
-                            },
-                            items:
-                                categorysList.map((catmodel.Category category) {
-                              return DropdownMenuItem(
+                        validator: (value) =>
+                            value == null ? 'please choose a category' : null,
+                        value: selectedCategory,
+                        hint: const Text("Choose Category"),
+                        onChanged: (newValue) {
+                          setState(() {
+                            selectedCategory = newValue;
+                          });
+                        },
+                        items: categorysList
+                            .map(
+                              (category) => DropdownMenuItem(
                                 value: category,
                                 child: Text(category.description),
-                              );
-                            }).toList(),
-                          ),
-                        ),
+                              ),
+                            )
+                            .toList(),
                       ),
                     ),
                     Padding(
@@ -178,7 +175,7 @@ class ContractFormState extends ConsumerState<ContractFormDialog> {
                         },
                         validator: (value) {
                           if (value == null || value.isEmpty) {
-                            return "Please enter a description";
+                            return "Please enter the amount";
                             //Überarbeiten!
                           }
                           return null;
@@ -186,26 +183,65 @@ class ContractFormState extends ConsumerState<ContractFormDialog> {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 8, vertical: 16),
-                      child: ElevatedButton(
-                        onPressed: () {
-                          if (_formKey.currentState!.validate()) {
-                            _formKey.currentState!.save();
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 38, vertical: 16),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            ElevatedButton(
+                              style: ButtonStyle(
+                                backgroundColor: MaterialStatePropertyAll(
+                                    Theme.of(context).colorScheme.primary),
+                                foregroundColor: MaterialStatePropertyAll(
+                                    Theme.of(context)
+                                        .colorScheme
+                                        .inversePrimary),
+                                padding: const MaterialStatePropertyAll(
+                                  EdgeInsets.symmetric(
+                                      vertical: 10, horizontal: 30),
+                                ),
+                              ),
+                              onPressed: () {
+                                if (_formKey.currentState!.validate()) {
+                                  _formKey.currentState!.save();
 
-                            ref
-                                .read(contractslistProvider.notifier)
-                                .addContract(_description, _billingPeriod,
-                                    selectedCategory, _isIncome, _amount);
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              const SnackBar(content: Text("Contract created")),
-                            );
-                            Navigator.of(context).pop();
-                          }
-                        },
-                        child: const Text("Create"),
-                      ),
-                    ),
+                                  ref
+                                      .read(contractslistProvider.notifier)
+                                      .addContract(
+                                          _description,
+                                          _billingPeriod,
+                                          selectedCategory!,
+                                          _isIncome,
+                                          _amount);
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    const SnackBar(
+                                        content: Text("Contract created")),
+                                  );
+                                  Navigator.of(context).pop();
+                                }
+                              },
+                              child: const Icon(Icons.add_task_rounded),
+                            ),
+                            ElevatedButton(
+                              style: ButtonStyle(
+                                backgroundColor: MaterialStatePropertyAll(
+                                    Theme.of(context).colorScheme.primary),
+                                foregroundColor: MaterialStatePropertyAll(
+                                    Theme.of(context)
+                                        .colorScheme
+                                        .inversePrimary),
+                                padding: const MaterialStatePropertyAll(
+                                  EdgeInsets.symmetric(
+                                      vertical: 10, horizontal: 30),
+                                ),
+                              ),
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
+                              child: const Icon(Icons.close_rounded),
+                            ),
+                          ],
+                        )),
                   ],
                 ),
               ),
