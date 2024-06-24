@@ -4,7 +4,27 @@ import 'package:fixedfundsflow/model/contract.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class ContractlistNotifier extends StateNotifier<List<Contract>> {
-  ContractlistNotifier() : super([]);
+  ContractlistNotifier()
+      : super([
+          Contract(
+              id: 1,
+              description: "Rent for apartment",
+              billingPeriod: BillingPeriod.monthly,
+              category: Category(id: 7, description: "Living Expanses"),
+              amount: 62000),
+          Contract(
+              id: 2,
+              description: "mobile Phone",
+              billingPeriod: BillingPeriod.monthly,
+              category: Category(id: 8, description: "Telekommunication"),
+              amount: 5000),
+          Contract(
+              id: 1,
+              description: "League of Legends",
+              billingPeriod: BillingPeriod.monthly,
+              category: Category(id: 8, description: "Fun & Games"),
+              amount: 2000),
+        ]);
 
   void addContract(String description, BillingPeriod billingPeriod,
       Category category, bool income, int amount) {

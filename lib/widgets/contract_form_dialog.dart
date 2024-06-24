@@ -24,7 +24,6 @@ class ContractFormState extends ConsumerState<ContractFormDialog> {
   Widget build(BuildContext context) {
     final categorysList = ref.watch(categoryslistProvider);
     catmodel.Category? selectedCategory;
-
     return Dialog(
       backgroundColor: Colors.transparent,
       insetPadding: const EdgeInsets.fromLTRB(10, 30, 10, 30),
@@ -125,9 +124,10 @@ class ContractFormState extends ConsumerState<ContractFormDialog> {
                           horizontal: 8, vertical: 16),
                       child: InputDecorator(
                         decoration: const InputDecoration(
-                            border: OutlineInputBorder(),
-                            contentPadding: EdgeInsets.symmetric(
-                                vertical: 12.5, horizontal: 8)),
+                          border: OutlineInputBorder(),
+                          contentPadding: EdgeInsets.symmetric(
+                              vertical: 12.5, horizontal: 8),
+                        ),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
