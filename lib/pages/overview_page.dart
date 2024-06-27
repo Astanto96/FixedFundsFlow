@@ -1,5 +1,6 @@
 import 'package:fixedfundsflow/model/contract.dart';
 import 'package:fixedfundsflow/provider/contractslist_provider.dart';
+import 'package:fixedfundsflow/widgets/custom_overview_listtile.dart';
 import 'package:fixedfundsflow/widgets/menu_drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -23,10 +24,7 @@ class OverviewPage extends ConsumerWidget {
         padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
         itemCount: contracts.length,
         itemBuilder: (BuildContext context, int index) {
-          return ListTile(
-            leading: Text(contracts[index].description),
-            trailing: Text(contracts[index].amount.toString()),
-          );
+          return CustomOverviewListTile(contract: contracts[index]);
         },
       ),
     );
