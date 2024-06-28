@@ -1,6 +1,7 @@
 import 'package:fixedfundsflow/config/routes/route_location.dart';
 import 'package:fixedfundsflow/model/contract.dart';
 import 'package:flutter/material.dart';
+import 'package:fixedfundsflow/utils/amount_formatter.dart';
 
 class CustomOverviewListTile extends StatelessWidget {
   const CustomOverviewListTile({
@@ -20,9 +21,13 @@ class CustomOverviewListTile extends StatelessWidget {
               .pushNamed(RouteLocation.contractDetails, arguments: contract);
         },
         child: Container(
-          padding: const EdgeInsets.symmetric(vertical: 32, horizontal: 16),
+          padding: const EdgeInsets.symmetric(vertical: 32, horizontal: 18),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(8),
+            border: Border(
+                right: BorderSide(
+                    width: 1.5,
+                    color: contract.income ? Colors.green : Colors.red)),
             color: Theme.of(context).colorScheme.primary,
           ),
           child: Row(
@@ -33,7 +38,7 @@ class CustomOverviewListTile extends StatelessWidget {
                 style: const TextStyle(fontSize: 16),
               ),
               Text(
-                contract.amount.toString(),
+                AmountFormatter.formatToString(contract.amount),
                 style: const TextStyle(fontSize: 16),
               ),
             ],
