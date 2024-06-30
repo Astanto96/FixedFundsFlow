@@ -15,33 +15,41 @@ class CustomOverviewListTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8),
-      child: InkWell(
-        onTap: () {
-          Navigator.of(context)
-              .pushNamed(RouteLocation.contractDetails, arguments: contract);
-        },
-        child: Container(
-          padding: const EdgeInsets.symmetric(vertical: 32, horizontal: 18),
-          decoration: BoxDecoration(
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(8),
+          border: Border(
+              right: BorderSide(
+                  width: 1.5,
+                  color: contract.income ? Colors.green : Colors.red)),
+          color: Theme.of(context).colorScheme.primary,
+        ),
+        child: Material(
+          color: Colors.transparent,
+          child: InkWell(
+            onTap: () {
+              Future.delayed(const Duration(milliseconds: 200), () {
+                Navigator.of(context).pushNamed(RouteLocation.contractDetails,
+                    arguments: contract);
+              });
+            },
             borderRadius: BorderRadius.circular(8),
-            border: Border(
-                right: BorderSide(
-                    width: 1.5,
-                    color: contract.income ? Colors.green : Colors.red)),
-            color: Theme.of(context).colorScheme.primary,
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              Text(
-                contract.description,
-                style: const TextStyle(fontSize: 16),
+            child: Container(
+              padding: const EdgeInsets.symmetric(vertical: 32, horizontal: 16),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Text(
+                    contract.description,
+                    style: const TextStyle(fontSize: 16),
+                  ),
+                  Text(
+                    AmountFormatter.formatToString(contract.amount),
+                    style: const TextStyle(fontSize: 16),
+                  ),
+                ],
               ),
-              Text(
-                AmountFormatter.formatToString(contract.amount),
-                style: const TextStyle(fontSize: 16),
-              ),
-            ],
+            ),
           ),
         ),
       ),
