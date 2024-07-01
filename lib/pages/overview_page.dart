@@ -1,6 +1,6 @@
 import 'package:fixedfundsflow/model/contract.dart';
 import 'package:fixedfundsflow/provider/contractslist_provider.dart';
-import 'package:fixedfundsflow/widgets/custom_overview_listtile.dart';
+import 'package:fixedfundsflow/widgets/overview_listtile.dart';
 import 'package:fixedfundsflow/widgets/menu_drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
