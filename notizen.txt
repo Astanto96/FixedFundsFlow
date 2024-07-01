@@ -13,6 +13,8 @@ DetailsPage:
 -sketch out the Layout to show DetailsInformation
 -implemetation of the Layout
 
+____________________________________________________________________________
 MenuDrawer:
--redo the "Design" -> look at mitch koyo designstuff, he has done a menudrawer before, 
-get inspiration there
+- reworked, 
+- ToggleButton for language still kinda odd. Rework needed but low priority
+- "Profile" Icon needs to be changed... but low prio for now
