@@ -5,7 +5,7 @@ class MenuDrawerListTile extends StatelessWidget {
   final String text;
   final void Function()? onTap;
 
-  MenuDrawerListTile(
+  const MenuDrawerListTile(
       {super.key, required this.icon, required this.text, required this.onTap});
 
   @override
