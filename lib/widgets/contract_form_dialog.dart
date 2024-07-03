@@ -2,6 +2,7 @@ import 'package:fixedfundsflow/model/billing_period.dart';
 import 'package:fixedfundsflow/model/category.dart' as catmodel;
 import 'package:fixedfundsflow/provider/categoryslist_provider.dart';
 import 'package:fixedfundsflow/provider/contractslist_provider.dart';
+import 'package:fixedfundsflow/widgets/custom_global_snackbar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -213,10 +214,10 @@ class ContractFormState extends ConsumerState<ContractFormDialog> {
                                           selectedCategory!,
                                           _isIncome,
                                           _amount);
-                                  ScaffoldMessenger.of(context).showSnackBar(
-                                    const SnackBar(
-                                        content: Text("Contract created")),
-                                  );
+                                  CustomGlobalSnackBar.show(
+                                      context,
+                                      "$_description got successfuly created",
+                                      true);
                                   Navigator.of(context).pop();
                                 }
                               },

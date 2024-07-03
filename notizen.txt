@@ -16,16 +16,10 @@ DetailsPage:
 -sketch out the Layout to show DetailsInformation
 -implemetation of the Layout
 
-
-
-SnackBar : -> Considering make it a seperate Widget
-            used:
-                - AddCategoryDialog when created | to be done
-                - AddContragDialog when created | to be done
-                - CategorysPage when Category deleted
-
 Colors: -> Considering adding Colors green & red to Theming -> When yes, redo snackbar coloring 
-
+!!!!!
+CONTRACT FORM DIALOG IS ODD WHEN CREATING A NEW CONTRACT! DEBUGGING!
+!!!!!
 ____________________________________________________________________________
 MenuDrawer:
 - reworked, 
@@ -40,3 +34,9 @@ Floating Button zum hinzufügen von --done
 
 AddCategoryDialog : simple Dialog with Inputfield --done
                     add snackbar when created --done
+
+SnackBar: -> created a global Custom Snackbar
+            CategoryDialog, confirm category created --done
+            CategoryPage -> delete Category --done
+            ContractDialog -> creating a Contract --done
+
