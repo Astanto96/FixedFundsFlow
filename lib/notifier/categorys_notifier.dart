@@ -12,8 +12,10 @@ class CategoryslistNotifier extends StateNotifier<List<Category>> {
           Category(id: 6, description: 'Category 6')
         ]);
 
-  void addCategory(Category category) {
-    state = [...state, category];
+  void addCategory(String description) {
+    final newCategory = Category(
+        id: DateTime.now().millisecondsSinceEpoch, description: description);
+    state = [...state, newCategory];
   }
 
   void updateCategory(int id, Category updatedCategory) {
