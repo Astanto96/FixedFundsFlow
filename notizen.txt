@@ -4,26 +4,39 @@ Notizen:
 
 TODO:
 
+MENUBURGER still too small, needs to get bigger, low prio
+
 ContractsForm:
  -Check and advance Rules
  -Abort Button, show Dialog if form is dirty to warn about informationloss
  -Confirmation Snackbar if the submit was successful
+ -FontColor "Is It Income?"
 
 DetailsPage: 
 -sketch out the Layout to show DetailsInformation
 -implemetation of the Layout
 
-CategorysPage:
-ListTile for Categorys
-    -Name of Category + Bin Icon for delete
-    -simple onliner ListTile
-Floating Button zum hinzufügen von 
 
 
-120 32 32 64
-87 33
+SnackBar : -> Considering make it a seperate Widget
+            used:
+                - AddCategoryDialog when created | to be done
+                - AddContragDialog when created | to be done
+                - CategorysPage when Category deleted
+
+Colors: -> Considering adding Colors green & red to Theming -> When yes, redo snackbar coloring 
+
 ____________________________________________________________________________
 MenuDrawer:
 - reworked, 
 - ToggleButton for language still kinda odd. Rework needed but low priority
 - "Profile" Icon needs to be changed... but low prio for now
+
+CategorysPage:
+ListTile for Categorys
+    -Name of Category + Bin Icon for delete --done
+    -simple oneliner ListTile --done
+Floating Button zum hinzufügen von --done
+
+AddCategoryDialog : simple Dialog with Inputfield --done
+                    add snackbar when created --done
