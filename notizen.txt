@@ -4,7 +4,9 @@ Notizen:
 
 TODO:
 
-MENUBURGER still too small, needs to get bigger, low prio
+Overview:
+- Visualisation for the Income / Outcome, SumUp
+- try a differnt one
 
 ContractsForm:
  -Check and advance Rules
