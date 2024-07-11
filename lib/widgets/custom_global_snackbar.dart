@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 class CustomGlobalSnackBar {
@@ -26,13 +28,15 @@ class CustomGlobalSnackBar {
 
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-          content: Text(
-            text,
-            style: TextStyle(
-                fontSize: 14,
-                color: Theme.of(context).colorScheme.inversePrimary),
-          ),
-          backgroundColor: backgroundColor),
+        content: Text(
+          text,
+          style: TextStyle(
+              fontSize: 14,
+              color: Theme.of(context).colorScheme.inversePrimary),
+        ),
+        backgroundColor: backgroundColor,
+        duration: const Duration(seconds: 1),
+      ),
     );
   }
 }
