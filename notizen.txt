@@ -4,7 +4,15 @@ Notizen:
 
 TODO:
 
-MENUBURGER still too small, needs to get bigger, low prio
+TODO:
+____________________________________________________________________________
+1. ContragsPage deleting --> "Overview" to "Contracts"
+2. ContractDetailsPage
+3. CreateCategoryDialog, snackbar green
+4. BugFix ContractDialog
+3. Create ContractDialog also in "Contracts" --> make a widget for it?
+5. Enhance ContractsForm
+____________________________________________________________________________
 
 ContractsForm:
  -Check and advance Rules
