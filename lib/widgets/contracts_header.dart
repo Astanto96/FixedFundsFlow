@@ -1,11 +1,11 @@
-import 'package:fixedfundsflow/widgets/overview_header_container.dart';
+import 'package:fixedfundsflow/widgets/contracts_header_container.dart';
 import 'package:flutter/material.dart';
 
-class OverviewHeader extends StatelessWidget {
+class ContractsHeader extends StatelessWidget {
   final int? income;
   final int? difference;
   final int expanses;
-  const OverviewHeader(
+  const ContractsHeader(
       {super.key, this.income, this.difference, required this.expanses});
 
   @override
@@ -14,14 +14,14 @@ class OverviewHeader extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: <Widget>[
         Expanded(
-          child: OverviewHeaderContainer(title: "Income", amount: income),
+          child: ContractsOverviewContainer(title: "Income", amount: income),
         ),
         Expanded(
-          child:
-              OverviewHeaderContainer(title: "Difference", amount: difference),
+          child: ContractsOverviewContainer(
+              title: "Difference", amount: difference),
         ),
         Expanded(
-          child: OverviewHeaderContainer(
+          child: ContractsOverviewContainer(
             title: "Expanses",
             amount: expanses,
           ),

@@ -1,7 +1,7 @@
 import 'package:fixedfundsflow/model/contract.dart';
 import 'package:fixedfundsflow/provider/contractslist_provider.dart';
-import 'package:fixedfundsflow/widgets/overview_header.dart';
-import 'package:fixedfundsflow/widgets/overview_listtile.dart';
+import 'package:fixedfundsflow/widgets/contracts_header.dart';
+import 'package:fixedfundsflow/widgets/contracts_listtile.dart';
 import 'package:fixedfundsflow/widgets/menu_drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -33,7 +33,7 @@ class OverviewPage extends ConsumerWidget {
       endDrawer: const MenuDrawer(),
       body: Column(
         children: [
-          OverviewHeader(
+          ContractsHeader(
               income: totalIncome,
               difference: totalDifference,
               expanses: totalExpanses),
@@ -44,7 +44,7 @@ class OverviewPage extends ConsumerWidget {
             shrinkWrap: true,
             itemCount: contracts.length,
             itemBuilder: (BuildContext context, int index) {
-              return CustomOverviewListTile(contract: contracts[index]);
+              return CustomContractsListTile(contract: contracts[index]);
             },
           ),
         ],

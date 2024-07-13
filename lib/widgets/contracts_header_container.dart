@@ -1,10 +1,11 @@
 import 'package:fixedfundsflow/utils/amount_formatter.dart';
 import 'package:flutter/material.dart';
 
-class OverviewHeaderContainer extends StatelessWidget {
+class ContractsOverviewContainer extends StatelessWidget {
   final String title;
   final int? amount;
-  const OverviewHeaderContainer({super.key, required this.title, this.amount});
+  const ContractsOverviewContainer(
+      {super.key, required this.title, this.amount});
 
   @override
   Widget build(BuildContext context) {

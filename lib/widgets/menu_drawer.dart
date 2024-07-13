@@ -31,13 +31,6 @@ class MenuDrawer extends StatelessWidget {
                     ),
                   ),
                   MenuDrawerListTile(
-                    icon: Icons.euro_symbol_rounded,
-                    text: "O V E R V I E W",
-                    onTap: () {
-                      goToRoute(RouteLocation.overview);
-                    },
-                  ),
-                  MenuDrawerListTile(
                     icon: Icons.description_outlined,
                     text: "C O N T R A C T S",
                     onTap: () {

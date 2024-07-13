@@ -3,8 +3,8 @@ import 'package:fixedfundsflow/model/contract.dart';
 import 'package:flutter/material.dart';
 import 'package:fixedfundsflow/utils/amount_formatter.dart';
 
-class CustomOverviewListTile extends StatelessWidget {
-  const CustomOverviewListTile({
+class CustomContractsListTile extends StatelessWidget {
+  const CustomContractsListTile({
     super.key,
     required this.contract,
   });
