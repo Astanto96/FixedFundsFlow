@@ -82,7 +82,7 @@ class CategoryFormDialogState extends ConsumerState<CategoryFormDialog> {
                                     .read(categoryslistProvider.notifier)
                                     .addCategory(_description);
                                 CustomGlobalSnackBar.show(context,
-                                    "Category successfuly created!", null);
+                                    "Category successfuly created!", true);
                                 Navigator.of(context).pop();
                               }
                             },

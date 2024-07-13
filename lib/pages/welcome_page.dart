@@ -20,7 +20,7 @@ class WelcomePage extends ConsumerWidget {
 
       //INTRO-MITTIG
       body: const Center(
-        child: Text('Hello Pogo Intro'),
+        child: Text('BOOOM! FIXEDFUNDSFLOW!'),
       ),
 
       //FLOATINGBUTTON

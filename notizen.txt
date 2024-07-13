@@ -1,10 +1,6 @@
-Notizen:
-
-30.06.2024  
-
 TODO:
 ____________________________________________________________________________
-1. ContragsPage deleting --> "Overview" to "Contracts"
+1. ContragsPage deleting --> "Overview" to "Contracts" --Done
 2. ContractDetailsPage
 3. CreateCategoryDialog, snackbar green
 4. BugFix ContractDialog
@@ -12,6 +8,12 @@ ____________________________________________________________________________
 5. Enhance ContractsForm
 ____________________________________________________________________________
 
+DetailsPage: 
+- Page -> InputStyle like "Create X Form Dialogs" 
+- Inputs inside Form -> Inputs Invalid until "Edit" Mode active
+- "Edit" - Mode via IconButton accessable
+- Accept Changes Button
+- Delete Button
 
 Overview:
 - Visualisation for the Income / Outcome, SumUp
@@ -22,7 +24,3 @@ ContractsForm:
  -Abort Button, show Dialog if form is dirty to warn about informationloss
  -Confirmation Snackbar if the submit was successful
  -FontColor "Is It Income?"
-
-DetailsPage: 
--sketch out the Layout to show DetailsInformation
--implemetation of the Layout
