@@ -19,11 +19,18 @@ class ContractlistNotifier extends StateNotifier<List<Contract>> {
               category: Category(id: 8, description: "Telekommunication"),
               amount: 5000),
           Contract(
-              id: 1,
+              id: 3,
               description: "League of Legends",
               billingPeriod: BillingPeriod.monthly,
-              category: Category(id: 8, description: "Fun & Games"),
+              category: Category(id: 6, description: "Fun & Games"),
               amount: 2000),
+          Contract(
+              id: 4,
+              description: "Paycheck",
+              billingPeriod: BillingPeriod.monthly,
+              category: Category(id: 2, description: "Income"),
+              income: true,
+              amount: 230000),
         ]);
 
   void addContract(String description, BillingPeriod billingPeriod,

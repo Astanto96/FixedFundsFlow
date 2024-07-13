@@ -3,8 +3,6 @@ Notizen:
 30.06.2024  
 
 TODO:
-
-TODO:
 ____________________________________________________________________________
 1. ContragsPage deleting --> "Overview" to "Contracts"
 2. ContractDetailsPage
@@ -13,6 +11,11 @@ ____________________________________________________________________________
 3. Create ContractDialog also in "Contracts" --> make a widget for it?
 5. Enhance ContractsForm
 ____________________________________________________________________________
+
+
+Overview:
+- Visualisation for the Income / Outcome, SumUp
+- try a differnt one
 
 ContractsForm:
  -Check and advance Rules
