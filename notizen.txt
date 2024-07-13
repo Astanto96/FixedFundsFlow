@@ -3,6 +3,15 @@ Notizen:
 30.06.2024  
 
 TODO:
+____________________________________________________________________________
+1. ContragsPage deleting --> "Overview" to "Contracts"
+2. ContractDetailsPage
+3. CreateCategoryDialog, snackbar green
+4. BugFix ContractDialog
+3. Create ContractDialog also in "Contracts" --> make a widget for it?
+5. Enhance ContractsForm
+____________________________________________________________________________
+
 
 Overview:
 - Visualisation for the Income / Outcome, SumUp
