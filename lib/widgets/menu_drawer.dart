@@ -15,7 +15,7 @@ class MenuDrawer extends StatelessWidget {
 
     return SafeArea(
       child: Drawer(
-        backgroundColor: Theme.of(context).colorScheme.background,
+        backgroundColor: Theme.of(context).colorScheme.surface,
         child: Column(
           children: [
             Expanded(

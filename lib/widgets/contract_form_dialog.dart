@@ -30,7 +30,7 @@ class ContractFormState extends ConsumerState<ContractFormDialog> {
       insetPadding: const EdgeInsets.fromLTRB(10, 30, 10, 30),
       child: Container(
           decoration: BoxDecoration(
-            color: Theme.of(context).colorScheme.background,
+            color: Theme.of(context).colorScheme.surface,
             borderRadius: BorderRadius.circular(15),
           ),
           padding: const EdgeInsets.all(20),
@@ -191,13 +191,13 @@ class ContractFormState extends ConsumerState<ContractFormDialog> {
                           children: <Widget>[
                             ElevatedButton(
                               style: ButtonStyle(
-                                backgroundColor: MaterialStatePropertyAll(
+                                backgroundColor: WidgetStatePropertyAll(
                                     Theme.of(context).colorScheme.primary),
-                                foregroundColor: MaterialStatePropertyAll(
+                                foregroundColor: WidgetStatePropertyAll(
                                     Theme.of(context)
                                         .colorScheme
                                         .inversePrimary),
-                                padding: const MaterialStatePropertyAll(
+                                padding: const WidgetStatePropertyAll(
                                   EdgeInsets.symmetric(
                                       vertical: 10, horizontal: 30),
                                 ),
@@ -225,13 +225,13 @@ class ContractFormState extends ConsumerState<ContractFormDialog> {
                             ),
                             ElevatedButton(
                               style: ButtonStyle(
-                                backgroundColor: MaterialStatePropertyAll(
+                                backgroundColor: WidgetStatePropertyAll(
                                     Theme.of(context).colorScheme.primary),
-                                foregroundColor: MaterialStatePropertyAll(
+                                foregroundColor: WidgetStatePropertyAll(
                                     Theme.of(context)
                                         .colorScheme
                                         .inversePrimary),
-                                padding: const MaterialStatePropertyAll(
+                                padding: const WidgetStatePropertyAll(
                                   EdgeInsets.symmetric(
                                       vertical: 10, horizontal: 30),
                                 ),

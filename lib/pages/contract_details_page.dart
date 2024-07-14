@@ -12,7 +12,7 @@ class ContractDetailsPage extends ConsumerWidget {
         ModalRoute.of(context)?.settings.arguments as Contract;
 
     return Scaffold(
-      backgroundColor: Theme.of(context).colorScheme.background,
+      backgroundColor: Theme.of(context).colorScheme.surface,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
