@@ -4,4 +4,4 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final contractslistProvider =
     StateNotifierProvider<ContractlistNotifier, List<Contract>>(
-        (ref) => ContractlistNotifier());
+        (ref) => ContractlistNotifier(),);

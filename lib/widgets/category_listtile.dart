@@ -6,7 +6,7 @@ class CategoryListTile extends StatelessWidget {
   final Function(Category) onRemove;
 
   const CategoryListTile(
-      {super.key, required this.category, required this.onRemove});
+      {super.key, required this.category, required this.onRemove,});
 
   @override
   Widget build(BuildContext context) {

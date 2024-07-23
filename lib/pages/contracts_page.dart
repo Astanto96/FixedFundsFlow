@@ -15,7 +15,7 @@ class ContractsPage extends ConsumerWidget {
     final int? totalIncome = contracts
         .where((contract) => contract.income)
         .map((contract) => contract.amount)
-        .fold(0, ((previousValue, amount) => previousValue! + amount));
+        .fold(0, (previousValue, amount) => previousValue! + amount);
     final int totalExpanses = contracts
         .where((contract) => !contract.income)
         .map((contract) => contract.amount)
@@ -36,7 +36,7 @@ class ContractsPage extends ConsumerWidget {
           ContractsHeader(
               income: totalIncome,
               difference: totalDifference,
-              expanses: totalExpanses),
+              expanses: totalExpanses,),
           //ListView for Contracts
           ListView.builder(
             padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),

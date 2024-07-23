@@ -51,7 +51,7 @@ class ContractFormState extends ConsumerState<ContractFormDialog> {
                   children: <Widget>[
                     Padding(
                       padding: const EdgeInsets.symmetric(
-                          horizontal: 8, vertical: 16),
+                          horizontal: 8, vertical: 16,),
                       child: TextFormField(
                         decoration: const InputDecoration(
                           border: OutlineInputBorder(),
@@ -70,7 +70,7 @@ class ContractFormState extends ConsumerState<ContractFormDialog> {
                     ),
                     Padding(
                       padding: const EdgeInsets.symmetric(
-                          horizontal: 8, vertical: 16),
+                          horizontal: 8, vertical: 16,),
                       child: DropdownButtonFormField<BillingPeriod>(
                         decoration: const InputDecoration(
                           border: OutlineInputBorder(),
@@ -96,7 +96,7 @@ class ContractFormState extends ConsumerState<ContractFormDialog> {
                     ),
                     Padding(
                       padding: const EdgeInsets.symmetric(
-                          horizontal: 8, vertical: 16),
+                          horizontal: 8, vertical: 16,),
                       child: DropdownButtonFormField<catmodel.Category>(
                         decoration: const InputDecoration(
                           border: OutlineInputBorder(),
@@ -122,12 +122,12 @@ class ContractFormState extends ConsumerState<ContractFormDialog> {
                     ),
                     Padding(
                       padding: const EdgeInsets.symmetric(
-                          horizontal: 8, vertical: 16),
+                          horizontal: 8, vertical: 16,),
                       child: InputDecorator(
                         decoration: const InputDecoration(
                           border: OutlineInputBorder(),
                           contentPadding: EdgeInsets.symmetric(
-                              vertical: 12.5, horizontal: 8),
+                              vertical: 12.5, horizontal: 8,),
                         ),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -140,7 +140,7 @@ class ContractFormState extends ConsumerState<ContractFormDialog> {
                                     fontSize: 16,
                                     color: Theme.of(context)
                                         .colorScheme
-                                        .inversePrimary),
+                                        .inversePrimary,),
                               ),
                             ),
                             Padding(
@@ -152,7 +152,7 @@ class ContractFormState extends ConsumerState<ContractFormDialog> {
                                     setState(() {
                                       _isIncome = newValue!;
                                     });
-                                  }),
+                                  },),
                             ),
                           ],
                         ),
@@ -160,7 +160,7 @@ class ContractFormState extends ConsumerState<ContractFormDialog> {
                     ),
                     Padding(
                       padding: const EdgeInsets.symmetric(
-                          horizontal: 8, vertical: 16),
+                          horizontal: 8, vertical: 16,),
                       child: TextFormField(
                         decoration: InputDecoration(
                           border: const OutlineInputBorder(),
@@ -185,21 +185,21 @@ class ContractFormState extends ConsumerState<ContractFormDialog> {
                     ),
                     Padding(
                         padding: const EdgeInsets.symmetric(
-                            horizontal: 38, vertical: 16),
+                            horizontal: 38, vertical: 16,),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
                             ElevatedButton(
                               style: ButtonStyle(
                                 backgroundColor: WidgetStatePropertyAll(
-                                    Theme.of(context).colorScheme.primary),
+                                    Theme.of(context).colorScheme.primary,),
                                 foregroundColor: WidgetStatePropertyAll(
                                     Theme.of(context)
                                         .colorScheme
-                                        .inversePrimary),
+                                        .inversePrimary,),
                                 padding: const WidgetStatePropertyAll(
                                   EdgeInsets.symmetric(
-                                      vertical: 10, horizontal: 30),
+                                      vertical: 10, horizontal: 30,),
                                 ),
                               ),
                               onPressed: () {
@@ -213,11 +213,11 @@ class ContractFormState extends ConsumerState<ContractFormDialog> {
                                           _billingPeriod,
                                           selectedCategory!,
                                           _isIncome,
-                                          _amount);
+                                          _amount,);
                                   CustomGlobalSnackBar.show(
                                       context,
                                       "$_description got successfuly created",
-                                      true);
+                                      true,);
                                   Navigator.of(context).pop();
                                 }
                               },
@@ -226,14 +226,14 @@ class ContractFormState extends ConsumerState<ContractFormDialog> {
                             ElevatedButton(
                               style: ButtonStyle(
                                 backgroundColor: WidgetStatePropertyAll(
-                                    Theme.of(context).colorScheme.primary),
+                                    Theme.of(context).colorScheme.primary,),
                                 foregroundColor: WidgetStatePropertyAll(
                                     Theme.of(context)
                                         .colorScheme
-                                        .inversePrimary),
+                                        .inversePrimary,),
                                 padding: const WidgetStatePropertyAll(
                                   EdgeInsets.symmetric(
-                                      vertical: 10, horizontal: 30),
+                                      vertical: 10, horizontal: 30,),
                                 ),
                               ),
                               onPressed: () {
@@ -242,12 +242,12 @@ class ContractFormState extends ConsumerState<ContractFormDialog> {
                               child: const Icon(Icons.close_rounded),
                             ),
                           ],
-                        )),
+                        ),),
                   ],
                 ),
               ),
             ],
-          )),
+          ),),
     );
   }
 }

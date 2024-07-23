@@ -4,9 +4,9 @@ class CustomGlobalSnackBar {
   final String text;
   //true == green, false == red, null == default
   final bool? isItGood;
-  const CustomGlobalSnackBar(this.isItGood, {required this.text});
+  const CustomGlobalSnackBar({this.isItGood, required this.text});
 
-  static show(
+  static void show(
     BuildContext context,
     String text,
     bool? isItGood,
@@ -15,13 +15,10 @@ class CustomGlobalSnackBar {
     switch (isItGood) {
       case true:
         backgroundColor = Colors.green;
-        break;
       case false:
         backgroundColor = Colors.red;
-        break;
       case null:
         backgroundColor = Colors.blue;
-        break;
     }
 
     ScaffoldMessenger.of(context).showSnackBar(
@@ -29,8 +26,9 @@ class CustomGlobalSnackBar {
         content: Text(
           text,
           style: TextStyle(
-              fontSize: 14,
-              color: Theme.of(context).colorScheme.inversePrimary),
+            fontSize: 14,
+            color: Theme.of(context).colorScheme.inversePrimary,
+          ),
         ),
         backgroundColor: backgroundColor,
         duration: const Duration(seconds: 1),

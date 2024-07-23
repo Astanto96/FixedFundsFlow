@@ -9,19 +9,19 @@ class CategoryslistNotifier extends StateNotifier<List<Category>> {
           Category(id: 3, description: 'Category 3'),
           Category(id: 4, description: 'Category 4'),
           Category(id: 5, description: 'Category 5'),
-          Category(id: 6, description: 'Category 6')
+          Category(id: 6, description: 'Category 6'),
         ]);
 
   void addCategory(String description) {
     final newCategory = Category(
-        id: DateTime.now().millisecondsSinceEpoch, description: description);
+        id: DateTime.now().millisecondsSinceEpoch, description: description,);
     state = [...state, newCategory];
   }
 
   void updateCategory(int id, Category updatedCategory) {
     state = [
       for (final category in state)
-        if (category.id == id) updatedCategory else category
+        if (category.id == id) updatedCategory else category,
     ];
   }
 

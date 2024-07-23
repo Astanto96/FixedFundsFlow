@@ -23,7 +23,7 @@ class CategorysPageState extends ConsumerState<CategorysPage> {
       setState(() {
         categories.remove(category);
         CustomGlobalSnackBar.show(
-            context, "${category.description} got successfuly deleted", true);
+            context, "${category.description} got successfuly deleted", true,);
       });
     }
 

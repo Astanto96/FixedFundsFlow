@@ -9,7 +9,7 @@ class ContractDetailsPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final Contract contract =
-        ModalRoute.of(context)?.settings.arguments as Contract;
+        ModalRoute.of(context)!.settings.arguments! as Contract;
 
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.surface,

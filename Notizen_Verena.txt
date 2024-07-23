@@ -1,0 +1,46 @@
+Expansetracker
+
+Riverpod
+Theming (darkmode / lightmode)
+Verträge & Kategorien selber erstellen / verwalten
+
+still to do 
+____________________________________________________________________________
+Öffnen der App nur nach Pin / FaceID
+lokales speichern über SQFlite
+sequed package? vershclüsselte db--
+Auswertung Gewichtung der Verträge nach Kategorie --> Fl Charts --DONE
+Exportmöglichkeit der Daten? --> Speichern sind Permissions mit drinn, das ist gut
+Übersetzung Localisation Deutsch / Englisch
+I10N
+
+
+Was ist noch wichtig umzusetzen in einem Portfolioprojekt?
+
+Async 
+
+________________
+
+Firebase -> nosql datenbankanbindung
+authentication für Logins
+
+evtl Supabse sqldatabase
+
+RESTApi
+
+Bloc / cubit
+Riverpod / Provider
+
+Dependency Injection --> seperation of concerns
+
+Widget of the Week, coole Quelle für Widgets
+
+Packages für VSCode -> 
+
+Firebaseappdestribution --> darüber kann man Zugriff auf die App
+
+Linter --> Lint Package
+
+__________________
+TODO -> Linter
+Auswertung 

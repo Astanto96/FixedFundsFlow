@@ -14,9 +14,11 @@ class MenuDrawerBotListTile extends ConsumerWidget {
     return Row(
       children: [
         IconButton(
-          icon: Icon(theme.brightness == Brightness.dark
-              ? Icons.sunny
-              : Icons.nights_stay),
+          icon: Icon(
+            theme.brightness == Brightness.dark
+                ? Icons.sunny
+                : Icons.nights_stay,
+          ),
           onPressed: () {
             ref.read(themeProvider.notifier).toggleTheme();
           },
@@ -30,9 +32,8 @@ class MenuDrawerBotListTile extends ConsumerWidget {
               language == 'en',
             ],
             onPressed: (int index) {
-              ref
-                  .read(languageProvider.notifier)
-                  .switchLanguage(index == 0 ? 'de' : 'eng');
+              ref.read(languageProvider.notifier).language =
+                  (index == 0 ? 'de' : 'en');
             },
             children: const <Widget>[
               Text('DE'),

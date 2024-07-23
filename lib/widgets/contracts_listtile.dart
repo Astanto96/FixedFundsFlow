@@ -1,7 +1,7 @@
 import 'package:fixedfundsflow/config/routes/route_location.dart';
 import 'package:fixedfundsflow/model/contract.dart';
-import 'package:flutter/material.dart';
 import 'package:fixedfundsflow/utils/amount_formatter.dart';
+import 'package:flutter/material.dart';
 
 class CustomContractsListTile extends StatelessWidget {
   const CustomContractsListTile({
@@ -21,7 +21,7 @@ class CustomContractsListTile extends StatelessWidget {
           border: Border(
               right: BorderSide(
                   width: 1.5,
-                  color: contract.income ? Colors.green : Colors.red)),
+                  color: contract.income ? Colors.green : Colors.red,),),
           color: Theme.of(context).colorScheme.primary,
         ),
         child: Material(
@@ -30,7 +30,7 @@ class CustomContractsListTile extends StatelessWidget {
             onTap: () {
               Future.delayed(const Duration(milliseconds: 200), () {
                 Navigator.of(context).pushNamed(RouteLocation.contractDetails,
-                    arguments: contract);
+                    arguments: contract,);
               });
             },
             borderRadius: BorderRadius.circular(8),

@@ -58,7 +58,7 @@ class MenuDrawer extends StatelessWidget {
             const Padding(
               padding: EdgeInsets.symmetric(vertical: 16, horizontal: 20),
               child: MenuDrawerBotListTile(),
-            )
+            ),
           ],
         ),
       ),

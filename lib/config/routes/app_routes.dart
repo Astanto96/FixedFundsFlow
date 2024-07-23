@@ -1,6 +1,6 @@
-import 'package:flutter/material.dart';
+import 'package:fixedfundsflow/config/routes/route_location.dart';
 import 'package:fixedfundsflow/pages/pages.dart';
-import 'route_location.dart';
+import 'package:flutter/material.dart';
 
 Map<String, WidgetBuilder> getAppRoutes() {
   return {

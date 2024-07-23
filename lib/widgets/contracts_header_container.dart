@@ -5,7 +5,7 @@ class ContractsOverviewContainer extends StatelessWidget {
   final String title;
   final int? amount;
   const ContractsOverviewContainer(
-      {super.key, required this.title, this.amount});
+      {super.key, required this.title, this.amount,});
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +26,7 @@ class ContractsOverviewContainer extends StatelessWidget {
             Text(
               AmountFormatter.formatToString(amount!),
               style: const TextStyle(fontSize: 16),
-            )
+            ),
           ],
         ],
       ),

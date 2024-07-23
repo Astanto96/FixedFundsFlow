@@ -4,4 +4,4 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final categoryslistProvider =
     StateNotifierProvider<CategoryslistNotifier, List<Category>>(
-        (ref) => CategoryslistNotifier());
+        (ref) => CategoryslistNotifier(),);

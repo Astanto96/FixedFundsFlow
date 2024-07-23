@@ -6,7 +6,7 @@ class ContractsHeader extends StatelessWidget {
   final int? difference;
   final int expanses;
   const ContractsHeader(
-      {super.key, this.income, this.difference, required this.expanses});
+      {super.key, this.income, this.difference, required this.expanses,});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +18,7 @@ class ContractsHeader extends StatelessWidget {
         ),
         Expanded(
           child: ContractsOverviewContainer(
-              title: "Difference", amount: difference),
+              title: "Difference", amount: difference,),
         ),
         Expanded(
           child: ContractsOverviewContainer(

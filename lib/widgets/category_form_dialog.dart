@@ -59,19 +59,19 @@ class CategoryFormDialogState extends ConsumerState<CategoryFormDialog> {
                   ),
                   Padding(
                       padding: const EdgeInsets.symmetric(
-                          horizontal: 38, vertical: 16),
+                          horizontal: 38, vertical: 16,),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
                           ElevatedButton(
                             style: ButtonStyle(
                               backgroundColor: WidgetStatePropertyAll(
-                                  Theme.of(context).colorScheme.primary),
+                                  Theme.of(context).colorScheme.primary,),
                               foregroundColor: WidgetStatePropertyAll(
-                                  Theme.of(context).colorScheme.inversePrimary),
+                                  Theme.of(context).colorScheme.inversePrimary,),
                               padding: const WidgetStatePropertyAll(
                                 EdgeInsets.symmetric(
-                                    vertical: 10, horizontal: 30),
+                                    vertical: 10, horizontal: 30,),
                               ),
                             ),
                             onPressed: () {
@@ -82,7 +82,7 @@ class CategoryFormDialogState extends ConsumerState<CategoryFormDialog> {
                                     .read(categoryslistProvider.notifier)
                                     .addCategory(_description);
                                 CustomGlobalSnackBar.show(context,
-                                    "Category successfuly created!", true);
+                                    "Category successfuly created!", true,);
                                 Navigator.of(context).pop();
                               }
                             },
@@ -91,12 +91,12 @@ class CategoryFormDialogState extends ConsumerState<CategoryFormDialog> {
                           ElevatedButton(
                             style: ButtonStyle(
                               backgroundColor: WidgetStatePropertyAll(
-                                  Theme.of(context).colorScheme.primary),
+                                  Theme.of(context).colorScheme.primary,),
                               foregroundColor: WidgetStatePropertyAll(
-                                  Theme.of(context).colorScheme.inversePrimary),
+                                  Theme.of(context).colorScheme.inversePrimary,),
                               padding: const WidgetStatePropertyAll(
                                 EdgeInsets.symmetric(
-                                    vertical: 10, horizontal: 30),
+                                    vertical: 10, horizontal: 30,),
                               ),
                             ),
                             onPressed: () {
@@ -105,10 +105,10 @@ class CategoryFormDialogState extends ConsumerState<CategoryFormDialog> {
                             child: const Icon(Icons.close_rounded),
                           ),
                         ],
-                      )),
+                      ),),
                 ],
               ),
-            )
+            ),
           ],
         ),
       ),
