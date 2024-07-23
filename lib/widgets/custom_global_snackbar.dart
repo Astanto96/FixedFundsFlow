@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 class CustomGlobalSnackBar {
-  final String text;
   //true == green, false == red, null == default
   final bool? isItGood;
+  final String text;
   const CustomGlobalSnackBar({this.isItGood, required this.text});
 
   static void show(

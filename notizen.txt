@@ -2,10 +2,11 @@ TODO:
 ____________________________________________________________________________
 1. ContragsPage deleting --> "Overview" to "Contracts" --Done
 2. ContractDetailsPage
-3. CreateCategoryDialog, snackbar green
+3. CreateCategoryDialog, snackbar green --Done
 4. BugFix ContractDialog
 3. Create ContractDialog also in "Contracts" --> make a widget for it?
 5. Enhance ContractsForm
+6. Highlighting der Inputfelder? Farben ändern?
 ____________________________________________________________________________
 
 DetailsPage: 
