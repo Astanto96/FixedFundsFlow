@@ -15,6 +15,7 @@ class StatisticNotifier extends StateNotifier<Statistic> {
             perCategoryIncomeSums: {},
             perCategoryContractCountInc: {},
             perCategoryContractCountExp: {},
+            categoryDescriptions: {},
           ),
         ) {
     final contracts = ref.watch(contractslistProvider);
@@ -31,24 +32,38 @@ class StatisticNotifier extends StateNotifier<Statistic> {
     final Map<int, int> categoryIncomeSums = {};
     final Map<int, int> categoryCountIncome = {};
     final Map<int, int> categoryCountExpense = {};
+    final Map<int, String> categoryDescriptions = {};
 
     for (final contract in contracts) {
       if (contract.income) {
         totalIncome += contract.amount;
+        final categoryID = contract.category.id;
+        final categoryDescription = contract.category.description;
+
+        if (!categoryDescriptions.containsKey(categoryID)) {
+          categoryDescriptions[categoryID] = categoryDescription;
+        }
 
         categoryIncomeSums.update(
-          contract.category.id,
+          categoryID,
           (value) => value + contract.amount,
           ifAbsent: () => contract.amount,
         );
 
         categoryCountIncome.update(
-          contract.category.id,
+          categoryID,
           (value) => value + 1,
           ifAbsent: () => 1,
         );
       } else {
         totalExpenses += contract.amount;
+
+        final categoryID = contract.category.id;
+        final categoryDescription = contract.category.description;
+
+        if (!categoryDescriptions.containsKey(categoryID)) {
+          categoryDescriptions[categoryID] = categoryDescription;
+        }
 
         categoryExpenseSums.update(
           contract.category.id,
@@ -71,6 +86,7 @@ class StatisticNotifier extends StateNotifier<Statistic> {
       perCategoryIncomeSums: categoryIncomeSums,
       perCategoryContractCountInc: categoryCountIncome,
       perCategoryContractCountExp: categoryCountExpense,
+      categoryDescriptions: categoryDescriptions,
     );
   }
 }

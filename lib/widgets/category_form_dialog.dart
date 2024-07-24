@@ -58,54 +58,69 @@ class CategoryFormDialogState extends ConsumerState<CategoryFormDialog> {
                     ),
                   ),
                   Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 38, vertical: 16,),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: <Widget>[
-                          ElevatedButton(
-                            style: ButtonStyle(
-                              backgroundColor: WidgetStatePropertyAll(
-                                  Theme.of(context).colorScheme.primary,),
-                              foregroundColor: WidgetStatePropertyAll(
-                                  Theme.of(context).colorScheme.inversePrimary,),
-                              padding: const WidgetStatePropertyAll(
-                                EdgeInsets.symmetric(
-                                    vertical: 10, horizontal: 30,),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 38,
+                      vertical: 16,
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        ElevatedButton(
+                          style: ButtonStyle(
+                            backgroundColor: WidgetStatePropertyAll(
+                              Theme.of(context).colorScheme.primary,
+                            ),
+                            foregroundColor: WidgetStatePropertyAll(
+                              Theme.of(context).colorScheme.inversePrimary,
+                            ),
+                            padding: const WidgetStatePropertyAll(
+                              EdgeInsets.symmetric(
+                                vertical: 10,
+                                horizontal: 30,
                               ),
                             ),
-                            onPressed: () {
-                              if (_formKey.currentState!.validate()) {
-                                _formKey.currentState!.save();
+                          ),
+                          onPressed: () {
+                            if (_formKey.currentState != null &&
+                                _formKey.currentState!.validate()) {
+                              _formKey.currentState!.save();
 
-                                ref
-                                    .read(categoryslistProvider.notifier)
-                                    .addCategory(_description);
-                                CustomGlobalSnackBar.show(context,
-                                    "Category successfuly created!", true,);
-                                Navigator.of(context).pop();
-                              }
-                            },
-                            child: const Icon(Icons.add_task_rounded),
-                          ),
-                          ElevatedButton(
-                            style: ButtonStyle(
-                              backgroundColor: WidgetStatePropertyAll(
-                                  Theme.of(context).colorScheme.primary,),
-                              foregroundColor: WidgetStatePropertyAll(
-                                  Theme.of(context).colorScheme.inversePrimary,),
-                              padding: const WidgetStatePropertyAll(
-                                EdgeInsets.symmetric(
-                                    vertical: 10, horizontal: 30,),
+                              ref
+                                  .read(categoryslistProvider.notifier)
+                                  .addCategory(_description);
+                              CustomGlobalSnackBar.show(
+                                context,
+                                "Category successfuly created!",
+                                true,
+                              );
+                              Navigator.of(context).pop();
+                            }
+                          },
+                          child: const Icon(Icons.add_task_rounded),
+                        ),
+                        ElevatedButton(
+                          style: ButtonStyle(
+                            backgroundColor: WidgetStatePropertyAll(
+                              Theme.of(context).colorScheme.primary,
+                            ),
+                            foregroundColor: WidgetStatePropertyAll(
+                              Theme.of(context).colorScheme.inversePrimary,
+                            ),
+                            padding: const WidgetStatePropertyAll(
+                              EdgeInsets.symmetric(
+                                vertical: 10,
+                                horizontal: 30,
                               ),
                             ),
-                            onPressed: () {
-                              Navigator.of(context).pop();
-                            },
-                            child: const Icon(Icons.close_rounded),
                           ),
-                        ],
-                      ),),
+                          onPressed: () {
+                            Navigator.of(context).pop();
+                          },
+                          child: const Icon(Icons.close_rounded),
+                        ),
+                      ],
+                    ),
+                  ),
                 ],
               ),
             ),

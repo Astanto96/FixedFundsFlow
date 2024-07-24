@@ -5,6 +5,7 @@ class Statistic {
   final Map<int, int> perCategoryIncomeSums;
   final Map<int, int> perCategoryContractCountInc;
   final Map<int, int> perCategoryContractCountExp;
+  final Map<int, String> categoryDescriptions;
 
   Statistic({
     required this.totalExpenses,
@@ -13,5 +14,6 @@ class Statistic {
     required this.perCategoryIncomeSums,
     required this.perCategoryContractCountInc,
     required this.perCategoryContractCountExp,
+    required this.categoryDescriptions,
   });
 }
