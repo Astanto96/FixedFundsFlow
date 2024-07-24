@@ -1,3 +1,4 @@
+import 'package:fixedfundsflow/provider/statistic_provider.dart';
 import 'package:fixedfundsflow/widgets/menu_drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -7,7 +8,7 @@ class StatisticsPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    //final contracts = ref.watch(contractListProvier)
+    final statistics = ref.watch(statisticProvider);
 
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.surface,
