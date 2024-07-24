@@ -12,16 +12,12 @@ class ContractsPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final List<Contract> contracts = ref.watch(contractslistProvider);
-    final int? totalIncome = contracts
-        .where((contract) => contract.income)
-        .map((contract) => contract.amount)
-        .fold(0, (previousValue, amount) => previousValue! + amount);
-    final int totalExpanses = contracts
-        .where((contract) => !contract.income)
-        .map((contract) => contract.amount)
-        .fold(0, (previousValue, amount) => previousValue + amount);
+    final int? totalIncome =
+        ref.read(contractslistProvider.notifier).showTotalIncome();
+    final int totalExpanses =
+        ref.read(contractslistProvider.notifier).showTotalExpanses();
     final int? totalDifference =
-        totalIncome! > 0 ? totalIncome - totalExpanses : null;
+        ref.read(contractslistProvider.notifier).showTotalDifference();
 
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.surface,
@@ -34,9 +30,10 @@ class ContractsPage extends ConsumerWidget {
       body: Column(
         children: [
           ContractsHeader(
-              income: totalIncome,
-              difference: totalDifference,
-              expanses: totalExpanses,),
+            income: totalIncome,
+            difference: totalDifference,
+            expanses: totalExpanses,
+          ),
           //ListView for Contracts
           ListView.builder(
             padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),

@@ -65,4 +65,25 @@ class ContractlistNotifier extends StateNotifier<List<Contract>> {
   void removeContract(int id) {
     state = state.where((vertrag) => vertrag.id != id).toList();
   }
+
+  int? showTotalIncome() {
+    return state
+        .where((vertrag) => vertrag.income)
+        .map((vertrag) => vertrag.amount)
+        .fold(0, (previousValue, amount) => previousValue! + amount);
+  }
+
+  int showTotalExpanses() {
+    return state
+        .where((vertrag) => !vertrag.income)
+        .map((vertrag) => vertrag.amount)
+        .fold(0, (previousValue, amount) => previousValue + amount);
+  }
+
+  int? showTotalDifference() {
+    final totalIncome = showTotalIncome();
+    final totalExpanse = showTotalExpanses();
+
+    return totalIncome! > 0 ? totalIncome - totalExpanse : null;
+  }
 }
