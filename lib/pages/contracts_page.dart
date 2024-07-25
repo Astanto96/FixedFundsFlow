@@ -35,14 +35,16 @@ class ContractsPage extends ConsumerWidget {
             expanses: totalExpanses,
           ),
           //ListView for Contracts
-          ListView.builder(
-            padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
-            //will only take up as much space as needed.
-            shrinkWrap: true,
-            itemCount: contracts.length,
-            itemBuilder: (BuildContext context, int index) {
-              return CustomContractsListTile(contract: contracts[index]);
-            },
+          Expanded(
+            child: ListView.builder(
+              padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+              //will only take up as much space as needed.
+              shrinkWrap: true,
+              itemCount: contracts.length,
+              itemBuilder: (BuildContext context, int index) {
+                return CustomContractsListTile(contract: contracts[index]);
+              },
+            ),
           ),
         ],
       ),
