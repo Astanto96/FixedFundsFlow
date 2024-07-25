@@ -1,5 +1,6 @@
 import 'package:fixedfundsflow/model/contract.dart';
 import 'package:fixedfundsflow/provider/contractslist_provider.dart';
+import 'package:fixedfundsflow/widgets/contract_form_dialog.dart';
 import 'package:fixedfundsflow/widgets/contracts_header.dart';
 import 'package:fixedfundsflow/widgets/contracts_listtile.dart';
 import 'package:fixedfundsflow/widgets/menu_drawer.dart';
@@ -47,6 +48,21 @@ class ContractsPage extends ConsumerWidget {
             ),
           ),
         ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        onPressed: () {
+          showDialog(
+            context: context,
+            builder: (BuildContext context) {
+              return const ContractFormDialog();
+            },
+          );
+        },
+        child: Icon(
+          Icons.add,
+          color: Theme.of(context).colorScheme.surface,
+        ),
       ),
     );
   }

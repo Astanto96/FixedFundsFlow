@@ -1,11 +1,13 @@
 TODO:
 ____________________________________________________________________________
-1. ContractDetailsPage
-2. BugFix ContractDialog
-3. Create ContractDialog also in "Contracts" --> make a widget for it?
-4. Enhance ContractsForm
-5. Highlighting der Inputfelder? Farben ändern?
-6. ContractsPage -> CustomListTiles to Default? Look Category
+- ContractDetailsPage
+- ContractPage Overview
+- FloatingButton für COntractsPage --Done
+- BugFix ContractDialog --Done
+- Create ContractDialog also in "Contracts" --> make a widget for it?
+- Enhance ContractsForm
+- Highlighting der Inputfelder? Farben ändern?
+- ContractsPage -> CustomListTiles to Default? Look Category
 ____________________________________________________________________________
 
 DetailsPage: 
