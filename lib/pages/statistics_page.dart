@@ -1,5 +1,6 @@
 import 'package:fixedfundsflow/provider/statistic_provider.dart';
 import 'package:fixedfundsflow/widgets/menu_drawer.dart';
+import 'package:fixedfundsflow/widgets/pie_chart_description.dart';
 import 'package:fixedfundsflow/widgets/pie_chart_statistics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -12,7 +13,7 @@ class StatisticsPage extends ConsumerWidget {
     final statistics = ref.watch(statisticProvider);
     final total = statistics.totalExpenses;
     final categorySums = statistics.perCategoryExpenseSums;
-    final categoryCounts = statistics.perCategoryContractCountExp;
+    final contractCounts = statistics.perCategoryContractCountExp;
     final categoryDescriptions = statistics.categoryDescriptions;
 
     return Scaffold(
@@ -42,17 +43,14 @@ class StatisticsPage extends ConsumerWidget {
               itemBuilder: (context, index) {
                 final categoryId = categorySums.keys.elementAt(index);
                 final categorySum = categorySums[categoryId]!;
-                final contractCount = categoryCounts[categoryId]!;
+                final contractCount = contractCounts[categoryId]!;
                 final categoryDescription = categoryDescriptions[categoryId]!;
 
-                return Card(
-                  margin: const EdgeInsets.symmetric(vertical: 8),
-                  child: ListTile(
-                    title: Text(categoryDescription),
-                    subtitle: Text(
-                      'Total: $categorySum\nContracts: $contractCount',
-                    ),
-                  ),
+                return PieChartDescription(
+                  categoryId: categoryId,
+                  categorySum: categorySum,
+                  contractCount: contractCount,
+                  categoryDescription: categoryDescription,
                 );
               },
             ),
