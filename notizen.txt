@@ -1,10 +1,8 @@
 TODO:
 ____________________________________________________________________________
-- ContractDetailsPage
-- ContractPage Overview
-- FloatingButton für COntractsPage --Done
-- BugFix ContractDialog --Done
-- Create ContractDialog also in "Contracts" --> make a widget for it?
+- ContractDetailsPage --> WiP Buttons nicht vergessen
+- ContractPage Overview Header
+- ContractDetailsPage --> Bug wenn ich Dropdownbtn mit contract.category bestücke
 - Enhance ContractsForm
 - Highlighting der Inputfelder? Farben ändern?
 - ContractsPage -> CustomListTiles to Default? Look Category

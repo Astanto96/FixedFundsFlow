@@ -84,10 +84,10 @@ class ContractlistNotifier extends StateNotifier<List<Contract>> {
     state = [...state, newContract];
   }
 
-  void updateContract(int id, Contract updatedVertrag) {
+  void updateContract(Contract updatedVertrag) {
     state = [
       for (final vertrag in state)
-        if (vertrag.id == id) updatedVertrag else vertrag,
+        if (vertrag.id == updatedVertrag.id) updatedVertrag else vertrag,
     ];
   }
 
