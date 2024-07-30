@@ -30,7 +30,11 @@ class ContractDetailsState extends ConsumerState<ContractDetailsPage> {
     BillingPeriod billingPeriod = contract.billingPeriod;
     bool isIncome = contract.income;
     int amount = contract.amount;
-    catmodel.Category selectedCategory = contract.category;
+    catmodel.Category? selectedCategory = contract.category;
+
+    if (!categorysList.contains(selectedCategory)) {
+      selectedCategory = null;
+    }
 
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.surface,
@@ -48,13 +52,15 @@ class ContractDetailsState extends ConsumerState<ContractDetailsPage> {
         padding: const EdgeInsets.all(20),
         child: Column(
           children: <Widget>[
+            IconButton(
+              icon: const Icon(Icons.delete_forever_outlined),
+              onPressed: () {},
+            ),
             const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+              padding: EdgeInsets.only(bottom: 16),
               child: Text(
                 "Contract Details",
-                style: TextStyle(
-                  fontSize: 20,
-                ),
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
             ),
             Form(
@@ -127,7 +133,7 @@ class ContractDetailsState extends ConsumerState<ContractDetailsPage> {
                       hint: const Text("Choose Category"),
                       onChanged: (newValue) {
                         setState(() {
-                          selectedCategory = newValue!;
+                          selectedCategory = newValue;
                         });
                       },
                       items: categorysList
@@ -238,7 +244,7 @@ class ContractDetailsState extends ConsumerState<ContractDetailsPage> {
                               _formKey.currentState!.save();
                               contract.amount = amount;
                               contract.billingPeriod = billingPeriod;
-                              contract.category = selectedCategory;
+                              contract.category = selectedCategory!;
                               contract.description = description;
                               contract.income = isIncome;
 

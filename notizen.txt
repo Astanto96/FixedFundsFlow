@@ -9,11 +9,9 @@ ____________________________________________________________________________
 ____________________________________________________________________________
 
 DetailsPage: 
-- Page -> InputStyle like "Create X Form Dialogs" 
-- Inputs inside Form -> Inputs Invalid until "Edit" Mode active
-- "Edit" - Mode via IconButton accessable
-- Accept Changes Button
-- Delete Button
+-Edit Button
+-Delete Button
+-State, das alle inputs disabled sind, nur änderbar mit EditButton aktiv
 
 Overview:
 - Visualisation for the Income / Outcome, SumUp
