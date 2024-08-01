@@ -20,6 +20,7 @@ class ContractDetailsPage extends ConsumerStatefulWidget {
 
 class ContractDetailsState extends ConsumerState<ContractDetailsPage> {
   final _formKey = GlobalKey<FormState>();
+  bool formIsEditable = false;
 
   @override
   Widget build(BuildContext context) {
@@ -98,6 +99,7 @@ class ContractDetailsState extends ConsumerState<ContractDetailsPage> {
                       vertical: 16,
                     ),
                     child: TextFormField(
+                      enabled: formIsEditable,
                       decoration: const InputDecoration(
                         border: OutlineInputBorder(),
                         hintText: "Enter a Description",
@@ -120,19 +122,20 @@ class ContractDetailsState extends ConsumerState<ContractDetailsPage> {
                       vertical: 16,
                     ),
                     child: DropdownButtonFormField<BillingPeriod>(
-                      decoration: const InputDecoration(
-                        border: OutlineInputBorder(),
+                      decoration: InputDecoration(
+                        enabled: formIsEditable,
+                        border: const OutlineInputBorder(),
                       ),
                       validator: (value) => value == null
                           ? 'please choose a billing period'
                           : null,
                       hint: const Text("Choose BillingPeriod"),
                       value: billingPeriod,
-                      onChanged: (newValue) {
-                        setState(() {
-                          billingPeriod = newValue!;
-                        });
-                      },
+                      onChanged: formIsEditable
+                          ? (newValue) => setState(() {
+                                billingPeriod = newValue!;
+                              })
+                          : null,
                       items: BillingPeriod.values
                           .map(
                             (period) => DropdownMenuItem(
@@ -149,18 +152,19 @@ class ContractDetailsState extends ConsumerState<ContractDetailsPage> {
                       vertical: 16,
                     ),
                     child: DropdownButtonFormField<catmodel.Category>(
-                      decoration: const InputDecoration(
-                        border: OutlineInputBorder(),
+                      decoration: InputDecoration(
+                        enabled: formIsEditable,
+                        border: const OutlineInputBorder(),
                       ),
                       validator: (value) =>
                           value == null ? 'please choose a category' : null,
                       value: selectedCategory,
                       hint: const Text("Choose Category"),
-                      onChanged: (newValue) {
-                        setState(() {
-                          selectedCategory = newValue;
-                        });
-                      },
+                      onChanged: formIsEditable
+                          ? (newValue) => setState(() {
+                                selectedCategory = newValue;
+                              })
+                          : null,
                       items: categorysList
                           .map(
                             (category) => DropdownMenuItem(
@@ -177,9 +181,10 @@ class ContractDetailsState extends ConsumerState<ContractDetailsPage> {
                       vertical: 16,
                     ),
                     child: InputDecorator(
-                      decoration: const InputDecoration(
-                        border: OutlineInputBorder(),
-                        contentPadding: EdgeInsets.symmetric(
+                      decoration: InputDecoration(
+                        enabled: formIsEditable,
+                        border: const OutlineInputBorder(),
+                        contentPadding: const EdgeInsets.symmetric(
                           vertical: 12.5,
                           horizontal: 8,
                         ),
@@ -193,9 +198,11 @@ class ContractDetailsState extends ConsumerState<ContractDetailsPage> {
                               "Is it Income?",
                               style: TextStyle(
                                 fontSize: 16,
-                                color: Theme.of(context)
-                                    .colorScheme
-                                    .inversePrimary,
+                                color: formIsEditable
+                                    ? Theme.of(context)
+                                        .colorScheme
+                                        .inversePrimary
+                                    : Theme.of(context).disabledColor,
                               ),
                             ),
                           ),
@@ -204,11 +211,11 @@ class ContractDetailsState extends ConsumerState<ContractDetailsPage> {
                             child: CupertinoSwitch(
                               activeColor: Colors.green,
                               value: isIncome,
-                              onChanged: (bool? newValue) {
-                                setState(() {
-                                  isIncome = newValue!;
-                                });
-                              },
+                              onChanged: formIsEditable
+                                  ? (bool newValue) => setState(() {
+                                        isIncome = newValue;
+                                      })
+                                  : null,
                             ),
                           ),
                         ],
@@ -222,6 +229,7 @@ class ContractDetailsState extends ConsumerState<ContractDetailsPage> {
                     ),
                     child: TextFormField(
                       decoration: InputDecoration(
+                        enabled: formIsEditable,
                         border: const OutlineInputBorder(),
                         hintText: "00,00€",
                         prefixIcon: Icon(isIncome ? Icons.add : Icons.remove),
@@ -229,7 +237,7 @@ class ContractDetailsState extends ConsumerState<ContractDetailsPage> {
                       ),
                       initialValue: AmountFormatter.formatToString(amount),
                       onSaved: (value) {
-                        amount = int.parse(value!);
+                        amount = AmountFormatter.formatToInt(value!);
                         //Achtung, nochmal komplett überarbeiten!
                       },
                       validator: (value) {
@@ -249,45 +257,69 @@ class ContractDetailsState extends ConsumerState<ContractDetailsPage> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
-                        ElevatedButton(
-                          style: ButtonStyle(
-                            backgroundColor: WidgetStatePropertyAll(
-                              Theme.of(context).colorScheme.primary,
-                            ),
-                            foregroundColor: WidgetStatePropertyAll(
-                              Theme.of(context).colorScheme.inversePrimary,
-                            ),
-                            padding: const WidgetStatePropertyAll(
-                              EdgeInsets.symmetric(
-                                vertical: 10,
-                                horizontal: 30,
+                        if (formIsEditable)
+                          ElevatedButton(
+                            style: ButtonStyle(
+                              backgroundColor: WidgetStatePropertyAll(
+                                Theme.of(context).colorScheme.primary,
+                              ),
+                              foregroundColor: WidgetStatePropertyAll(
+                                Theme.of(context).colorScheme.inversePrimary,
+                              ),
+                              padding: const WidgetStatePropertyAll(
+                                EdgeInsets.symmetric(
+                                  vertical: 10,
+                                  horizontal: 30,
+                                ),
                               ),
                             ),
-                          ),
-                          onPressed: () {
-                            if (_formKey.currentState!.validate()) {
-                              _formKey.currentState!.save();
-                              contract.amount = amount;
-                              contract.billingPeriod = billingPeriod;
-                              contract.category = selectedCategory!;
-                              contract.description = description;
-                              contract.income = isIncome;
+                            onPressed: () {
+                              setState(() {
+                                formIsEditable = false;
+                                if (_formKey.currentState!.validate()) {
+                                  _formKey.currentState!.save();
+                                  contract.amount = amount;
+                                  contract.billingPeriod = billingPeriod;
+                                  contract.category = selectedCategory!;
+                                  contract.description = description;
+                                  contract.income = isIncome;
 
-                              ref
-                                  .read(contractslistProvider.notifier)
-                                  .updateContract(contract);
-                              CustomGlobalSnackBar.show(
-                                context,
-                                "$description got successfuly updated!",
-                                true,
-                              );
-                              Navigator.of(context).pop();
-                              Navigator.of(context)
-                                  .pushNamed(RouteLocation.contracts);
-                            }
-                          },
-                          child: const Icon(Icons.add_task_rounded),
-                        ),
+                                  ref
+                                      .read(contractslistProvider.notifier)
+                                      .updateContract(contract);
+                                  CustomGlobalSnackBar.show(
+                                    context,
+                                    "$description got successfuly updated!",
+                                    true,
+                                  );
+                                }
+                              });
+                            },
+                            child: const Icon(Icons.add_task_rounded),
+                          )
+                        else
+                          ElevatedButton(
+                            style: ButtonStyle(
+                              backgroundColor: WidgetStatePropertyAll(
+                                Theme.of(context).colorScheme.primary,
+                              ),
+                              foregroundColor: WidgetStatePropertyAll(
+                                Theme.of(context).colorScheme.inversePrimary,
+                              ),
+                              padding: const WidgetStatePropertyAll(
+                                EdgeInsets.symmetric(
+                                  vertical: 10,
+                                  horizontal: 30,
+                                ),
+                              ),
+                            ),
+                            onPressed: () {
+                              setState(() {
+                                formIsEditable = true;
+                              });
+                            },
+                            child: const Icon(Icons.edit),
+                          ),
                         ElevatedButton(
                           style: ButtonStyle(
                             backgroundColor: WidgetStatePropertyAll(
