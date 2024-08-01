@@ -1,24 +1,20 @@
 TODO:
+
+Backend / Functionality:
 ____________________________________________________________________________
-- ContractDetailsPage --> WiP Buttons nicht vergessen
+Accessing app via FaceID / Pin
+persisting via SQFlite 
+Export Functionality for Backups
+____________________________________________________________________________
+
+View:
+____________________________________________________________________________
 - ContractPage Overview Header
-- ContractDetailsPage --> Bug wenn ich Dropdownbtn mit contract.category bestücke
 - Enhance ContractsForm
 - Highlighting der Inputfelder? Farben ändern?
 - ContractsPage -> CustomListTiles to Default? Look Category
 ____________________________________________________________________________
 
-DetailsPage: 
--Edit Button
--Delete Button
--State, das alle inputs disabled sind, nur änderbar mit EditButton aktiv
-
 Overview:
-- Visualisation for the Income / Outcome, SumUp
-- try a differnt one
+Visualisation via Tab -> if Income available -> 3 Tabs, Income, Expanses, Difference
 
-ContractsForm:
- -Check and advance Rules
- -Abort Button, show Dialog if form is dirty to warn about informationloss
- -Confirmation Snackbar if the submit was successful
- -FontColor "Is It Income?"
