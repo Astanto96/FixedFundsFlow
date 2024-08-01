@@ -47,21 +47,46 @@ class ContractDetailsState extends ConsumerState<ContractDetailsPage> {
       body: Container(
         decoration: BoxDecoration(
           color: Theme.of(context).colorScheme.surface,
-          borderRadius: BorderRadius.circular(15),
         ),
         padding: const EdgeInsets.all(20),
         child: Column(
           children: <Widget>[
-            IconButton(
-              icon: const Icon(Icons.delete_forever_outlined),
-              onPressed: () {},
-            ),
-            const Padding(
-              padding: EdgeInsets.only(bottom: 16),
-              child: Text(
-                "Contract Details",
-                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-              ),
+            Row(
+              children: <Widget>[
+                Expanded(
+                  child: Container(),
+                ),
+                const Text(
+                  "Contract Details",
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Expanded(
+                  child: Container(
+                    alignment: Alignment.centerRight,
+                    child: IconButton(
+                      icon: const Icon(Icons.delete_forever_outlined),
+                      iconSize: 30,
+                      color: Theme.of(context).colorScheme.inversePrimary,
+                      onPressed: () {
+                        ref
+                            .read(contractslistProvider.notifier)
+                            .removeContract(contract.id);
+                        CustomGlobalSnackBar.show(
+                          context,
+                          "${contract.description} got successfuly deleted",
+                          true,
+                        );
+                        Navigator.of(context).pop();
+                        Navigator.of(context)
+                            .pushNamed(RouteLocation.contracts);
+                      },
+                    ),
+                  ),
+                ),
+              ],
             ),
             Form(
               key: _formKey,
