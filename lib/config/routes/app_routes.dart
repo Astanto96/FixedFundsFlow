@@ -1,4 +1,5 @@
 import 'package:fixedfundsflow/config/routes/route_location.dart';
+import 'package:fixedfundsflow/pages/auth_page.dart';
 import 'package:fixedfundsflow/pages/pages.dart';
 import 'package:flutter/material.dart';
 
@@ -9,5 +10,6 @@ Map<String, WidgetBuilder> getAppRoutes() {
     RouteLocation.categorys: (context) => const CategorysPage(),
     RouteLocation.statisticsPage: (context) => const StatisticsPage(),
     RouteLocation.contractDetails: (context) => const ContractDetailsPage(),
+    RouteLocation.auth: (context) => const AuthPage(),
   };
 }

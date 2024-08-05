@@ -13,4 +13,5 @@ class RouteLocation {
   static String get categorys => '/categorys';
   static String get statisticsPage => '/statisticsPage';
   static String get contractDetails => '/contractDetails';
+  static String get auth => '/authPage';
 }

@@ -2,7 +2,7 @@ TODO:
 
 Backend / Functionality:
 ____________________________________________________________________________
-Accessing app via FaceID / Pin
+Accessing app via FaceID / Pin WiP
 persisting via SQFlite 
 Export Functionality for Backups
 ____________________________________________________________________________
