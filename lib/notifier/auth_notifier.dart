@@ -7,6 +7,9 @@ class AuthNotifier extends StateNotifier<AuthState> {
 
   AuthNotifier(this._auth) : super(AuthState.initial());
 
+//check if Biometrics are available
+//if yes, do them
+//if no, check without biometrics
   Future<void> authenticate() async {
     final bool canAuthenticateWithBiometrics = await _auth.canCheckBiometrics;
     final bool canAuthenticate =
@@ -18,6 +21,7 @@ class AuthNotifier extends StateNotifier<AuthState> {
           localizedReason: 'Please authenticate to access the app',
           options: const AuthenticationOptions(
             stickyAuth: true,
+            biometricOnly: true,
           ),
         );
         state = AuthState(isAuthenticated: didAuthenticate);

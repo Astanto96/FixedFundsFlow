@@ -4,27 +4,31 @@ import 'package:fixedfundsflow/provider/theme_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class FixedFundsFlowApp extends ConsumerWidget {
+class FixedFundsFlowApp extends ConsumerStatefulWidget {
   const FixedFundsFlowApp({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final authState = ref.watch(authProvider);
+  FixedFundsFlowAppState createState() => FixedFundsFlowAppState();
+}
 
+class FixedFundsFlowAppState extends ConsumerState<FixedFundsFlowApp> {
+  @override
+  void initState() {
+    super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) async {
-      if (authState.isAuthenticated == false) {
-        await ref.read(authProvider.notifier).authenticate();
-      }
+      await ref.read(authProvider.notifier).authenticate();
     });
+  }
 
+  @override
+  Widget build(BuildContext context) {
     final theme = ref.watch(themeProvider);
 
     return MaterialApp(
       title: "FixedFundsFlow",
       debugShowCheckedModeBanner: false,
       theme: theme,
-      initialRoute:
-          authState.isAuthenticated ? RouteLocation.home : RouteLocation.auth,
+      initialRoute: RouteLocation.home,
       routes: getAppRoutes(),
     );
   }
