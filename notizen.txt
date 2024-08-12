@@ -2,9 +2,11 @@ TODO:
 
 Backend / Functionality:
 ____________________________________________________________________________
-Accessing app via FaceID / Pin WiP
+Accessing app via FaceID / Pin WiP --> Checken was passiert wenn 
+"Abbruch" geklickt wird
+
 persisting via SQFlite 
-Export Functionality for Backups
+Export Functionality for Backups --low prio
 ____________________________________________________________________________
 
 View:
