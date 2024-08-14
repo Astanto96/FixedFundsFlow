@@ -1,14 +1,20 @@
 import 'package:fixedfundsflow/model/contract.dart';
+import 'package:fixedfundsflow/services/contract_factory.dart';
 import 'package:fixedfundsflow/services/database_service.dart';
 
 class ContractService {
   final DatabaseService _databaseService;
+  late final ContractFactory _contractFactory;
 
-  ContractService(this._databaseService);
+  ContractService(this._databaseService) {
+    _contractFactory = ContractFactory(_databaseService);
+  }
 
-  Future<int> addContract(Contract contract) async {
-    final db = await _databaseService.database;
-    return await db.insert('contracts', contract.toMap());
+  Future<Contract> addContract(Contract contract) async {
+    final newContract =
+        await _contractFactory.createContract(contract: contract);
+
+    return newContract;
   }
 
   Future<List<Contract>> getContracts() async {
