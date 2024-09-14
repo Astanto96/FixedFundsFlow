@@ -1,0 +1,71 @@
+Fragen:
+______________________________________________________________________
+- wie weit App damit aktiv damit bewerben?
+- wird der Code richtig angeschaut? Andre = skeptisch
+- eigene Portfolio - Seite = musthave?
+- App muss für Android / ios funktionieren? oder nur IOS ok?
+
+- ist es möglich ihre Liste von Erweiterungen für VSCode zu bekommen?
+______________________________________________________________________
+
+
+UI TODO:________________
+–
+Übersicht: 
+- Income/Difference/Expansen per Tabauswahl Oberhalb
+- Body evtl wie bei ING Diba App umbauen
+- Headline: schreiben oder Icon, je nach Design
+- Body -> 
+Darstellungsmöglichkeit mon, quartal, y gerechnet. Gesamtsumme und dann einzelne ausgerechnet
+
+
+Detailspage:
+- Editable raus, direkt veränderbar
+- Name von Contract anstelle von Contract Details in Appbar
+- Löschen Rechts anstelle von Menu, Confirmdialog!!
+- Abbruchbutton weg
+- confirm/edit Button über ganze breite
+
+Dialoge:
+-je nach Body von Übersicht Stiltechnisch umarbeiten, Standard Material Design?
+
+Kategorien:
+- an Body von der Übersicht angleichen
+
+Navigation:
+- Bottom Navigationbar da nur 3 Navigationspunkte
+- Rechts oben "Settings" Menu für DE / ENG und darkmode/lightmode
+
+Statistics:
+- Kategorien Nummerieren und Nummer im Diagramm verwenden?
+- Kategorie Auflistung evtl Dropdown -> wenn klick die verschiedenen Verträge aufgelistet mit Betrag?
+- viereck mit Farbe
+
+alle infos anzeigen die ich habe
+Kategorie mit gesamtbetrag und anzahl(icon für contract und dann Zahl) der Verträge
+einzelne verträge darunter aufschlüsseln
+
+"Kategorie" zweizeilig damit alle infos darin sind
+
+
+TECK TODO: ________________
+
+FaceID -> läuft noch nicht rund, nochmal ran
+Formulare -> weitere Überprüfungen?
+Formulare -> Währungen -> überprüfen, evtl ext. package nutzen?
+
+Datenbankaktionen im Notifier verzurren
+
+BONUSPUNKTE FÜR: 
+- Eng / Deutsch
+- Export
+
+______________________________________________________________________
+Feedback:
+
+- Bottomnav richtig -> Setttings mit rein als Seite
+- Homepage -> Minidashboard oder direkt mit Contracts Übersicht starten
+- verwende 4er oder 8er grid -> Klasse Appspacing mit allen Padddings 
+- Designtechnisch klickbar von unklickbar unterscheiden
+- Inputdecoration wäre dann auch im Theme zu speichern
+- Formular Reusable
