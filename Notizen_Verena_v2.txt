@@ -17,7 +17,7 @@ UI TODO:________________
 - Headline: schreiben oder Icon, je nach Design
 - Body -> 
 Darstellungsmöglichkeit mon, quartal, y gerechnet. Gesamtsumme und dann einzelne ausgerechnet
-
+das vielleicht in statistik anstelle von übersicht? einfacher tab reicht hier
 
 Detailspage:
 - Editable raus, direkt veränderbar
